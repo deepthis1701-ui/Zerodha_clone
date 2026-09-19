@@ -1,0 +1,128 @@
+.about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 90px;
+    padding-bottom: 40px;
+}
+
+.about-heading {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.about-heading h1 {
+    font-size: 2.3rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #424242;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #424242;
+    margin-bottom: 25px;
+}
+
+
+/* PEOPLE */
+
+.people-container {
+    max-width: 1100px;
+    margin: 50px auto 100px;
+}
+
+.people-container > h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #424242;
+    margin-bottom: 70px;
+}
+
+.person {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+.person-image {
+    width: 40%;
+    text-align: center;
+}
+
+.person-image img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.person-details {
+    width: 60%;
+    padding-left: 40px;
+}
+
+.person-details h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #424242;
+}
+
+.person-details h5 {
+    font-size: 15px;
+    font-weight: 400;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.person-details p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #424242;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: #387ed1;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #222;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .about-container {
+        padding: 50px 25px;
+    }
+
+    .about-heading h1 {
+        font-size: 1.8rem;
+    }
+
+    .person {
+        display: block;
+        text-align: center;
+    }
+
+    .person-image {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+
+    .person-details {
+        width: 100%;
+        padding-left: 0;
+    }
+}

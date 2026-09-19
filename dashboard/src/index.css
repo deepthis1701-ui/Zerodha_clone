@@ -1,0 +1,929 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  color: #424242;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar-container {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #eeeeee;
+  position: relative;
+  z-index: 100;
+}
+
+
+/* =========================
+   INDICES
+========================= */
+
+.indices-container {
+  width: 32%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 24px;
+  border-right: 1px solid #eeeeee;
+}
+
+.nifty,
+.sensex {
+  display: flex;
+  align-items: center;
+  margin-right: 35px;
+}
+
+.nifty > *,
+.sensex > * {
+  margin: 0 8px 0 0;
+}
+
+.index {
+  font-size: 13px;
+  font-weight: 500;
+  color: #424242;
+  white-space: nowrap;
+}
+
+.index-points {
+  font-size: 13px;
+  font-weight: 400;
+  color: #df4949;
+}
+
+.percent {
+  font-size: 12px;
+  color: #999999;
+}
+
+
+/* =========================
+   MENU / NAVIGATION
+========================= */
+
+.menu-container {
+  width: 68%;
+  height: 100%;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.kite-logo {
+  width: 45px;
+  height: auto;
+  object-fit: contain;
+}
+
+.menus {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.menus ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.menus li {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.menu {
+  margin: 0;
+  padding: 23px 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #424242;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.menu:hover {
+  color: #ff5722;
+}
+
+.menu.selected {
+  color: #ff5722;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-left: 18px;
+  padding-left: 18px;
+  border-left: 1px solid #eeeeee;
+  position: relative;
+  height: 40%;
+  cursor: pointer;
+}
+
+.profile .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fce5fc;
+  color: #c88bc8;
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 9px;
+}
+
+.profile .username {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: #424242;
+}
+
+.profile:hover .username {
+  color: #ff5722;
+}
+
+
+/* =========================
+   PROFILE DROPDOWN
+========================= */
+
+.profile-dropdown {
+  position: absolute;
+  top: 54px;
+  right: 0;
+  width: 180px;
+  background: #fff;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  z-index: 200;
+}
+
+.profile-dropdown p {
+  margin: 0;
+  padding: 12px 18px;
+  font-size: 13px;
+  color: #424242;
+  cursor: pointer;
+}
+
+.profile-dropdown p:hover {
+  background: #f7f7f7;
+  color: #ff5722;
+}
+
+
+/* =========================
+   MAIN DASHBOARD
+========================= */
+
+.dashboard-container {
+  width: 100%;
+  height: calc(100vh - 64px);
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+}
+
+
+/* =========================
+   WATCHLIST
+========================= */
+
+.watchlist-container {
+  width: 32%;
+  height: 100%;
+  border-right: 1px solid #eeeeee;
+  background: #fff;
+  overflow-y: auto;
+  position: relative;
+}
+
+
+/* SEARCH */
+
+.search-container {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.search {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 70px 0 24px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #424242;
+  background: #fff;
+}
+
+.search::placeholder {
+  color: #999;
+}
+
+.counts {
+  position: absolute;
+  right: 20px;
+  top: 23px;
+  font-size: 12px;
+  color: #999;
+}
+
+
+/* STOCK LIST */
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 55px;
+}
+
+.list li {
+  height: 70px;
+  padding: 0 14px 0 24px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eeeeee;
+  position: relative;
+}
+
+.list li:hover {
+  background: #f8f8f8;
+  cursor: pointer;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-info > * {
+  margin: 0;
+}
+
+.item-info span:nth-child(1) {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 400;
+  color: #666;
+}
+
+.item-info span:nth-child(2) {
+  flex: 1;
+  text-align: right;
+  margin-right: 15px;
+  font-size: 12px;
+  color: #e55b5b;
+}
+
+.item-info span:nth-child(3) {
+  flex: 1;
+  text-align: right;
+  font-size: 13px;
+  color: #555;
+}
+
+
+/* GREEN STOCK */
+
+.up {
+  color: #53b882 !important;
+}
+
+.down {
+  color: #df4949 !important;
+}
+
+
+/* STOCK ACTION BUTTONS */
+
+.actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  background: rgba(255, 255, 255, 0.97);
+}
+
+.list li:hover .actions {
+  display: flex;
+}
+
+.actions span {
+  display: flex;
+  align-items: center;
+}
+
+.actions button {
+  width: 38px;
+  height: 30px;
+  border-radius: 3px;
+  margin-left: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.buy {
+  background: #4184f3;
+  color: #fff;
+  border: 1px solid #4184f3;
+}
+
+.sell {
+  background: #ff5722;
+  color: #fff;
+  border: 1px solid #ff5722;
+}
+
+.action {
+  background: #fff;
+  color: #555;
+  border: 1px solid #ddd;
+}
+
+.buy:hover {
+  background: #326fd1;
+}
+
+.sell:hover {
+  background: #e54b1a;
+}
+
+.action:hover {
+  background: #f1f1f1;
+}
+
+
+/* =========================
+   WATCHLIST BOTTOM
+========================= */
+
+.watchlist-number {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-top: 1px solid #eeeeee;
+  z-index: 10;
+}
+
+.watchlist-number ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.watchlist-number ul li {
+  height: 54px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #eeeeee;
+  font-size: 13px;
+}
+
+.watchlist-number ul li:first-child {
+  color: #ff5722;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  width: 68%;
+  height: 100%;
+  padding: 55px 35px;
+  overflow-y: auto;
+  background: #fff;
+}
+
+
+/* =========================
+   DASHBOARD HEADING
+========================= */
+
+.username h6 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 400;
+  color: #424242;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background: #eeeeee;
+  margin: 27px 0 55px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.section span {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.section span p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  color: #424242;
+}
+
+.section-icon {
+  margin-right: 10px;
+  color: #777;
+}
+
+
+/* =========================
+   EQUITY / SUMMARY
+========================= */
+
+.data {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.data .first {
+  width: 35%;
+}
+
+.data .first h3 {
+  margin: 0;
+  font-size: 43px;
+  line-height: 1.2;
+  font-weight: 300;
+  color: #424242;
+}
+
+.data .first p {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: #999;
+}
+
+.data .first small {
+  font-size: 12px;
+  color: #53b882;
+}
+
+.data .first .profit {
+  color: #53b882;
+}
+
+.data hr {
+  width: 1px;
+  height: 75px;
+  margin: 0 40px;
+  border: none;
+  background: #eeeeee;
+}
+
+.data .second {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.data .second p {
+  margin: 0;
+  font-size: 13px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.data .second p span {
+  display: inline;
+  margin-left: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+
+/* =========================
+   ROW / COL
+========================= */
+
+.row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 45px;
+}
+
+.col {
+  flex-basis: 32%;
+}
+
+.col h5 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 300;
+  color: #424242;
+}
+
+.col h5 span {
+  display: inline;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.col p {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #999;
+  font-weight: 400;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.table {
+  width: 100%;
+  border: 1px solid #eeeeee;
+  padding: 35px;
+}
+
+.table .data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table .data > * {
+  margin-bottom: 20px;
+}
+
+.table .data p:first-child {
+  font-size: 13px;
+  color: #999;
+}
+
+.imp {
+  font-size: 22px;
+  color: #424242;
+}
+
+.colored {
+  color: #4184f3;
+}
+
+.table hr {
+  border: none;
+  height: 1px;
+  background: #eeeeee;
+  margin: 20px 0;
+}
+
+.commodity {
+  padding: 30px;
+  text-align: center;
+}
+
+.commodity p {
+  color: #aaa;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 13px;
+  border: none;
+}
+
+.btn-blue {
+  background: #4184f3;
+}
+
+.btn-green {
+  background: #53b882;
+}
+
+.btn-blue:hover {
+  background: #326fd1;
+}
+
+.btn-green:hover {
+  background: #439d6d;
+}
+
+
+/* =========================
+   FUNDS
+========================= */
+
+.funds {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.funds p {
+  margin-right: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+
+/* =========================
+   ORDERS
+========================= */
+
+.orders {
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  padding: 55px 35px;
+}
+
+.no-orders {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-orders .icon {
+  transform: scale(4);
+  color: #aaa;
+}
+
+.no-orders p {
+  margin-top: 55px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+
+/* =========================
+   ORDER TABLE
+========================= */
+
+.order-table {
+  width: 100%;
+}
+
+.order-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-table tr {
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.order-table th {
+  padding: 15px 10px;
+  text-align: right;
+  font-size: 12px;
+  font-weight: 400;
+  color: #999;
+}
+
+.order-table td {
+  padding: 13px 10px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 400;
+  color: #555;
+}
+
+.order-table tr th:first-child,
+.order-table tr td:first-child {
+  text-align: left;
+}
+
+.order-table td.profit {
+  color: #53b882;
+}
+
+.order-table td.loss {
+  color: #df4949;
+}
+
+.order-table tr td:first-child p {
+  width: 50%;
+  margin: 0;
+  padding: 4px;
+  background: #ffe1e1;
+  color: #df7373;
+  text-align: center;
+  border-radius: 3px;
+}
+
+
+/* =========================
+   OTHER
+========================= */
+
+.align-left {
+  text-align: left;
+}
+
+.title {
+  margin: 0 0 25px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #424242;
+}
+
+.item:hover {
+  cursor: pointer;
+}
+
+.settings {
+  color: #777;
+}
+
+.settings:hover {
+  color: #ff5722;
+  cursor: pointer;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.watchlist-container::-webkit-scrollbar,
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.watchlist-container::-webkit-scrollbar-thumb,
+.content::-webkit-scrollbar-thumb {
+  background: #d6d6d6;
+  border-radius: 5px;
+}
+
+.watchlist-container::-webkit-scrollbar-track,
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+  .menus li {
+    margin-left: 15px;
+  }
+
+  .menu {
+    font-size: 12px;
+  }
+
+  .indices-container {
+    padding: 0 12px;
+  }
+
+  .nifty,
+  .sensex {
+    margin-right: 12px;
+  }
+}
+
+@media (max-width: 750px) {
+  .indices-container {
+    width: 35%;
+  }
+
+  .menu-container {
+    width: 65%;
+  }
+
+  .watchlist-container {
+    width: 35%;
+  }
+
+  .content {
+    width: 65%;
+    padding: 30px 20px;
+  }
+
+  .menus li {
+    margin-left: 10px;
+  }
+
+  .kite-logo {
+    width: 35px;
+  }
+}
+
+.username h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 400;
+  color: #424242;
+}
